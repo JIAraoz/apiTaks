@@ -1,4 +1,5 @@
-export interface TaskDTO{
+export interface TaskI{
+     id?:string;
      description:string;
-     isDone:string;
+     isDone:boolean;
 }
