@@ -5,13 +5,19 @@ import { TaskService } from './task.service';
 
 @Controller('api/v1/task')
 export class TaskController {
-   /*  @Get()
-    method(@Body() body:any){
-        return {body}
-    } */
     constructor(private readonly taskService:TaskService){}
+    @Get("/getById/:id")
+    getById(@Param() params:any){
+
+        return this.taskService.getById(params.id)
+    }
+    @Get()
+    getAll(){
+        return this.taskService.getAll()
+    }
     @Post()
     create(@Body() taskDTO:TaskDTO){
         return this.taskService.create(taskDTO)
     }
+   
 }

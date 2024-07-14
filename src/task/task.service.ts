@@ -6,6 +6,7 @@ import {v4 as uuidv4} from 'uuid'
 export class TaskService {
     tasks:ITask[] = []
     create(taskDTO:TaskDTO):ITask{
+        
         const task={
             id:uuidv4(),
             ...taskDTO
@@ -13,4 +14,12 @@ export class TaskService {
         this.tasks.push(task)
     return  task
     }
-}
+    getAll():ITask[]{
+        return this.tasks
+    }
+
+    getById(id:string):ITask{
+        const task=this.tasks.find(e=>e.id===id)
+        return task
+    }
+} 
